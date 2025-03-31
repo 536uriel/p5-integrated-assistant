@@ -7,7 +7,7 @@
     <!-- for google search engine -->
     <meta name="robots" content="index, follow">
     <meta name="description" content="תרגול עם ספריית פ5 בית ספר ארנון">
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>תרגול עם ספריית פ5 בית ספר ארנון</title>
 
@@ -50,17 +50,35 @@
 
 <body>
 
-    <h1>  תרגול תכנות לבית ספר ארנון  p5 </h1>
+    <h1> תרגול תכנות לבית ספר ארנון p5 </h1>
 
-    <!-- CodeMirror Editor -->
-    <h3>// draw כאן נכתוב את הקוד שלפני הפונקציה הראשית </h3>
-    <textarea id="editor1">// Type JavaScript code here and click Run</textarea>
+    <div class="main-container">
+        
+        <div class="editors-container">
+            <!-- CodeMirror Editor -->
+            <h3>// draw כאן נכתוב את הקוד שלפני הפונקציה הראשית </h3>
 
-    <h3>// draw כאן נכתוב את הקוד שבתוך הפונקציה </h3>
-    <h2>function draw(){ </h2>
-    <textarea id="editor2">// Type JavaScript code here and click Run</textarea>
-    <h2>}</h2>
+            <textarea id="editor1">// Type JavaScript code here and click Run</textarea>
 
+            <h3>// draw כאן נכתוב את הקוד שבתוך הפונקציה </h3>
+            <h2>function draw(){ </h2>
+            <textarea id="editor2">// Type JavaScript code here and click Run</textarea>
+            <h2>}</h2>
+
+        </div>
+
+
+        <div class="output-contaner">
+            <!-- Run Button -->
+            <button onclick="runCode()">הפעל קוד</button>
+
+
+            <div id="output-canvas">
+
+            </div>
+        </div>
+
+    </div>
 
 
     <!-- commands list -->
@@ -69,13 +87,6 @@
     </ul>
 
 
-    <!-- Run Button -->
-    <button onclick="runCode()">הפעל קוד</button>
-
-
-    <div id="output-canvas">
-
-    </div>
 
 
 

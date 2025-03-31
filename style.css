@@ -7,10 +7,16 @@ body {
 
 }
 
-h1{
+h1 {
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
-  color: rgb(122, 220, 235);
+  color: rgb(96, 117, 156);
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 
@@ -18,8 +24,12 @@ canvas {
   display: block;
 }
 
-#output-canvas{
+#output-canvas {
   margin-top: 20px;
+}
+
+.output-contaner {
+  display: inline-block;
 }
 
 ul {
@@ -28,20 +38,45 @@ ul {
   padding: 0;
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
+  gap: 5px;
 
 }
 
-li{
-
-  font-size: 1.2rem;
-  font-family:'Courier New', Courier, monospace;
-  border: 1px solid black;
+li {
+  position: relative;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: white;
+  background: #222;
+  margin: 5px 0;
+  border-radius: 5px;
+  transition: 0.3s;
+  overflow: hidden;
   cursor: pointer;
+}
+
+li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transition: 0.5s;
+}
+
+li:hover::before {
+  left: 100%;
+}
+
+li:hover {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 .CodeMirror * {
   /*          ^
   */
-    font-family: Arial, monospace;
-    font-size: 1.2rem;
-  }
+  font-family: Arial, monospace;
+  font-size: 1.2rem;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeMirror with Run Button</title>
+
+    <!-- p5js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- CodeMirror CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/codemirror.min.css">
+
+    <!-- CodeMirror JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/addon/comment/comment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/mode/javascript/javascript.min.js"></script>
+
+    <style>
+        /* Optional: Styling for the editor */
+        .CodeMirror {
+            border: 1px solid #ddd;
+            height: 300px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background: #f9f9f9;
+            min-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1> תרגול תכנות p5</h1>
+
+    <!-- CodeMirror Editor -->
+    <h3>// draw כאן נכתוב את הקוד שלפני הפונקציה הראשית </h3>
+    <textarea id="editor1">// Type JavaScript code here and click Run</textarea>
+
+    <h3>// draw כאן נכתוב את הקוד שבתוך הפונקציה </h3>
+    <h2>function draw(){ </h2>
+    <textarea id="editor2">// Type JavaScript code here and click Run</textarea>
+    <h2>}</h2>
+
+
+
+    <!-- commands list -->
+    <ul id="commands">
+
+    </ul>
+
+
+    <!-- Run Button -->
+    <button onclick="runCode()">הפעל קוד</button>
+
+
+    <div id="output-canvas">
+
+    </div>
+
+
+
+
+    <!-- Output Display -->
+    <h3>Output:</h3>
+    <div id="output"></div>
+
+    <script src="codeMirror.js"></script>
+
+</body>
+
+</html>

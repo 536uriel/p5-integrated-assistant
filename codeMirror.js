@@ -57,6 +57,8 @@ var commands = [
     "rect(x, y, w, h)",
     "line(x1, y1, x2, y2)",
     "random()",
+    "mouseX",
+    "mouseY",
     "keyIsPressed",
     "key",
     `if(){  

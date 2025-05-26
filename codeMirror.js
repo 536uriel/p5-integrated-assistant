@@ -69,7 +69,7 @@ var commands = [
 
 
 }`,
-`function name(){
+    `function name(){
 }`
 ]
 
@@ -87,6 +87,32 @@ commands.forEach(command => {
     clist.appendChild(li)
 });
 
+
+function addCode1() {
+
+    const exampleCode1 = `
+fill(0, 0, 225)
+circle(mouseX, mouseY, 70)
+
+fill(225, 0, 0)
+circle(x, y, r)
+y -= 10
+
+if(y < 0){
+  x = mouseX
+  y = mouseY
+  
+}
+
+`
+    editor1.setValue(`
+x = 0
+y = 0
+r = 40
+        `)
+    editor2.setValue(exampleCode1);
+
+}
 
 
 

@@ -11,6 +11,24 @@ var cheight = Math.max(body.scrollHeight, body.offsetHeight,
 
 var callback = () => { };
 
+function overlap_circles(x1, y1, r1, x2, y2, r2){
+  let top1 = y1 - r1/2
+  let buttom1 = y1 + r1/2
+  let left1 = x1 - r1/2
+  let right1 = x1 + r1/2
+  
+  let top2 = y2 - r2/2
+  let buttom2 = y2 + r2/2
+  let left2 = x2 - r2/2
+  let right2 = x2 + r2/2
+  
+  return buttom1 > top2
+    && top1 < buttom2
+    && right1 > left2
+    && left1 < right2
+  
+}
+
 function setup() {
 
     let canvas = createCanvas(400, 400);
@@ -70,7 +88,8 @@ var commands = [
 
 }`,
     `function name(){
-}`
+}`,
+"overlap_circles(x1, y1, r1, x2, y2, r2)"
 ]
 
 var clist = document.getElementById("commands");
@@ -86,7 +105,6 @@ commands.forEach(command => {
 
     clist.appendChild(li)
 });
-
 
 function addCode1() {
 
@@ -112,6 +130,73 @@ r = 40
         `)
     editor2.setValue(exampleCode1);
 
+}
+
+function addCode2() {
+    const exampleCode2 = `
+    
+fill('purple')
+circle(x2, y2, r2)
+
+y2 += 3
+
+if(y2 > 400){
+  y2 = 0
+  x2 = random(50,350)
+}
+
+
+fill(0, 225, 0)
+circle(x3, y3, r3)
+
+y3 += 8
+
+if(y3 > 400){
+  x3 = x2
+  y3 = y2
+}
+
+    `
+
+    editor1.setValue(editor1.getValue() + "\n" + `
+x2 = 100
+y2 = 50
+r2 = 70
+
+x3 = x2
+y3 = y2
+r3 = 30
+    `);
+    
+    editor2.setValue(editor2.getValue() + "\n" + exampleCode2)
+}
+
+function addCode3(){
+
+    const exampleCode3 = `
+textSize(30)
+text("life " + life, 50,100)
+text("score " + score, 250,100)
+
+if(overlap_circles(mouseX, mouseY, 70, x3, y3, r3)){
+    x3 = x2
+    y3 = y2 
+
+    life -= 1
+}
+
+if(overlap_circles(x, y, r, x2, y2, r2)){
+    x2 = random(50,350)    
+    y2 = 0
+
+    x = mouseX
+    y = mouseY
+
+    score += 1
+}`
+
+     editor1.setValue(editor1.getValue() + "\n" + "life = 5\nscore = 0")
+     editor2.setValue(editor2.getValue() + "\n" + exampleCode3)
 }
 
 

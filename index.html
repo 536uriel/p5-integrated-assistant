@@ -38,6 +38,14 @@
             cursor: pointer;
         }
 
+        button.run-btn {
+            background-color: rgb(127, 244, 255);
+        }
+
+        button.run-btn:hover{
+            background-color: rgb(127, 255, 204);
+        }
+
         #output {
             margin-top: 20px;
             padding: 10px;
@@ -70,7 +78,7 @@
 
         <div class="output-contaner">
             <!-- Run Button -->
-            <button onclick="runCode()">הפעל קוד</button>
+            <button class="run-btn" onclick="runCode()">הפעל קוד</button>
             <button onclick="addCode1()">דוגמה לקוד 1</button>
             <button onclick="addCode2()">דוגמה לקוד 1 + קוד 2</button>
             <button onclick="addCode3()">דוגמה לקוד 1 + קוד 2 + קוד 3</button>

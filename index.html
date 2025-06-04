@@ -24,44 +24,33 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/addon/comment/comment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/mode/javascript/javascript.min.js"></script>
 
-    <style>
-        /* Optional: Styling for the editor */
-        .CodeMirror {
-            border: 1px solid #ddd;
-            height: 300px;
-        }
 
-        button {
-            margin-top: 10px;
-            padding: 8px 16px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        button.run-btn {
-            background-color: rgb(127, 244, 255);
-        }
-
-        button.run-btn:hover{
-            background-color: rgb(127, 255, 204);
-        }
-
-        #output {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            background: #f9f9f9;
-            min-height: 50px;
-        }
-    </style>
 </head>
 
 <body>
 
+    <div class="navbar">
+        <a href="#home">דוגמה</a>
+        <a href="#news">דוגמה</a>
+        <div class="dropdown">
+            <button class="dropbtn">דוגמה למשחק 1
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#" onclick="addCode1()">דוגמה קוד 1
+                </a>
+                <a href="#" onclick="addCode2()">1 + דוגמה קוד 2
+                </a>
+                <a href="#" onclick="addCode3()">1 + 2 + דוגמה קוד 3
+                </a>
+            </div>
+        </div>
+    </div>
+
     <h1> תרגול תכנות לבית ספר ארנון p5 </h1>
 
     <div class="main-container">
-        
+
         <div class="editors-container">
             <!-- CodeMirror Editor -->
             <h3>// draw כאן נכתוב את הקוד שלפני הפונקציה הראשית </h3>
@@ -79,9 +68,9 @@
         <div class="output-contaner">
             <!-- Run Button -->
             <button class="run-btn" onclick="runCode()">הפעל קוד</button>
-            <button onclick="addCode1()">דוגמה לקוד 1</button>
-            <button onclick="addCode2()">דוגמה לקוד 1 + קוד 2</button>
-            <button onclick="addCode3()">דוגמה לקוד 1 + קוד 2 + קוד 3</button>
+
+
+
 
             <div id="output-canvas">
 

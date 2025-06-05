@@ -109,40 +109,43 @@ commands.forEach(command => {
 function addExampleAngryBird() {
     const exampleCode = `
 
-  background(112, 50, 126);
-  strokeWeight(4);
-  stroke(255);
-  if(!rleased){
-  line(anchor.x, anchor.y, bob.x, bob.y);
-  }
-  fill(45, 197, 244);
-  circle(anchor.x, anchor.y, 32);
-  circle(bob.x, bob.y, 64);
+background(112, 50, 126);
+strokeWeight(4);
+stroke(255);
+if(!rleased){
+line(anchor.x, anchor.y, bob.x, bob.y);
+}
+fill(45, 197, 244);
+circle(anchor.x, anchor.y, 32);
+circle(bob.x, bob.y, 64);
 
-  if (mouseIsPressed) {
-    rleased = false;
-    bob.x = mouseX;
-    bob.y = mouseY;
-    velocity.set(0, 0);
-  }
+if (mouseIsPressed) {
+rleased = false;
+bob.x = mouseX;
+bob.y = mouseY;
+velocity.set(0, 0);
+}
 
-  if(!rleased){
-  gravity.set(0, 0.01)
-  force = p5.Vector.sub(bob, anchor);
-  let x = force.mag() - restLength;
-  force.mult(-1 * k * x);
-  }else{
-    if(gravity.y < 2){
-      gravity.y += 0.025;
-        }
+if(!rleased){
+gravity.set(0, 0.01)
+force = p5.Vector.sub(bob, anchor);
+let x = force.mag() - restLength;
+force.mult(-1 * k * x);
+}else{
+if(gravity.y < 2){
+    gravity.y += 0.025;
     }
+}
 
 
 
-  force.normalize();
-  velocity.add(force);
-  velocity.add(gravity)
-  bob.add(velocity);
+
+velocity.mult(1,0.98)
+force.normalize();
+velocity.add(force);
+velocity.add(gravity)
+bob.add(velocity);
+
     `;
 
 

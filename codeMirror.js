@@ -1,5 +1,4 @@
 //for p5 canvas
-
 var body = document.body,
     html = document.documentElement;
 
@@ -10,6 +9,134 @@ var cheight = Math.max(body.scrollHeight, body.offsetHeight,
     html.clientHeight, html.scrollHeight, html.offsetHeight);
 
 var callback = () => { };
+
+
+
+
+// Daniel Shiffman
+// http://codingtra.in
+// https://youtu.be/CKeyIbT3vXI
+
+
+
+
+class Firework {
+  constructor(x, y) {
+    this.hu = random(255);
+    this.firework = new Particle(x, y, this.hu, true);
+    this.exploded = false;
+    this.particles = [];
+  }
+
+  done() {
+    if (this.exploded && this.particles.length === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  update() {
+    if (!this.exploded) {
+      this.firework.applyForce(gf);
+      this.firework.update();
+
+      if (this.firework.vel.y >= 0) {
+        this.exploded = true;
+        this.explode();
+      }
+    }
+
+    for (let i = this.particles.length - 1; i >= 0; i--) {
+      this.particles[i].applyForce(gf);
+      this.particles[i].update();
+
+      if (this.particles[i].done()) {
+        this.particles.splice(i, 1);
+      }
+    }
+  }
+
+  explode() {
+    for (let i = 0; i < 100; i++) {
+      const p = new Particle(this.firework.pos.x, this.firework.pos.y, this.hu, false);
+      this.particles.push(p);
+    }
+  }
+
+  show() {
+    if (!this.exploded) {
+      this.firework.show();
+    }
+
+    for (var i = 0; i < this.particles.length; i++) {
+      this.particles[i].show();
+    }
+  }
+}
+
+
+
+// Daniel Shiffman
+// http://codingtra.in
+// https://youtu.be/CKeyIbT3vXI
+
+class Particle {
+  constructor(x, y, hu, firework) {
+    this.pos = createVector(x, y);
+    this.firework = firework;
+    this.lifespan = 255;
+    this.hu = hu;
+    this.acc = createVector(0, 0);
+    if (this.firework) {
+      this.vel = createVector(0, random(-12, -8));
+    } else {
+      this.vel = p5.Vector.random2D();
+      this.vel.mult(random(2, 10));
+    }
+  }
+
+  applyForce(force) {
+    this.acc.add(force);
+  }
+
+  update() {
+    if (!this.firework) {
+      this.vel.mult(0.9);
+      this.lifespan -= 4;
+    }
+    this.vel.add(this.acc);
+    this.pos.add(this.vel);
+    this.acc.mult(0);
+  }
+
+  done() {
+    if (this.lifespan < 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  show() {
+
+
+    if (!this.firework) {
+      strokeWeight(2);
+      stroke(this.hu, 255, 255, this.lifespan);
+    } else {
+      strokeWeight(4);
+      stroke(this.hu, 255, 255);
+    }
+
+    point(this.pos.x, this.pos.y);
+  }
+}
+
+
+
+
+
 
 function overlap_circle_rect(x1, y1, r1, x2, y2, w, h) {
     let top1 = y1 - r1 / 2
@@ -49,7 +176,7 @@ function overlap_circles(x1, y1, r1, x2, y2, r2) {
 
 function setup() {
 
-    let canvas = createCanvas(400, 400);
+    let canvas = createCanvas(500, 400);
     canvas.parent("output-canvas");
 
 }
@@ -136,6 +263,8 @@ line(anchor.x, anchor.y, bob.x, bob.y);
 fill(45, 197, 244);
 circle(anchor.x, anchor.y, 32);
 circle(bob.x, bob.y, 64);
+textSize(20);
+text("total-score  " + score + "   score  " + currentScore,50,50);
 
 if (mouseIsPressed) {
 rleased = false;
@@ -149,6 +278,7 @@ gravity.set(0, 0.01)
 force = p5.Vector.sub(bob, anchor);
 let x = force.mag() - restLength;
 force.mult(-1 * k * x);
+countScore = true;
 }else{
 if(gravity.y < 2){
     gravity.y += 0.025;
@@ -166,12 +296,29 @@ bob.add(velocity);
 
 if(overlap_circle_rect(bob.x, bob.y, bob.r, rct.v.x, rct.v.y, rct.w, rct.h)){
 
-rct.v.add(force.x * 5, force.y * 5)
+rct.v.add(force.x * 5, force.y * 5);
+    
+d = rct.v.x - d;
+d *= 10
+if(countScore){
+    currentScore = d > 47? 2 : 1;
+    score += currentScore;
+    countScore = false;
+    
+        if(currentScore > 1){
+        fire = new Firework(bob.x,bob.y);
+        fire.explode()
+        }
+
+    }
 
 }
 
 
-rect(rct.v.x,rct.v.y,rct.w,rct.h)
+rect(rct.v.x,rct.v.y,rct.w,rct.h);
+
+fire.update();
+fire.show();
 
     `;
 
@@ -187,6 +334,12 @@ k = 0.01;
 gravity = null;
 force = null;
 rleased = false;
+d = 0;
+score = 0;
+currentScore = 0;
+countScore = true;
+fire = null;
+gf = null;
 
 
 
@@ -196,7 +349,9 @@ anchor = createVector(150, 100);
 velocity = createVector(0, 0);
 gravity = createVector(0, 0.03);
 rct = {w:30,h:350}
-rct.v = createVector(300, 50);
+rct.v = createVector(400, 50);
+gf = createVector(0, 0.2);
+fire = new Firework(10,10);
 
 
 

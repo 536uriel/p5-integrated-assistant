@@ -370,6 +370,8 @@ function addCode1() {
 
     const exampleCode1 = `
 background("rgb(180, 170, 226)");
+strokeWeight(4);
+stroke(255);
 fill(0, 0, 225)
 circle(mouseX, mouseY, 70)
 

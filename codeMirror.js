@@ -11,22 +11,22 @@ var cheight = Math.max(body.scrollHeight, body.offsetHeight,
 
 var callback = () => { };
 
-function overlap_circles(x1, y1, r1, x2, y2, r2){
-  let top1 = y1 - r1/2
-  let buttom1 = y1 + r1/2
-  let left1 = x1 - r1/2
-  let right1 = x1 + r1/2
-  
-  let top2 = y2 - r2/2
-  let buttom2 = y2 + r2/2
-  let left2 = x2 - r2/2
-  let right2 = x2 + r2/2
-  
-  return buttom1 > top2
-    && top1 < buttom2
-    && right1 > left2
-    && left1 < right2
-  
+function overlap_circles(x1, y1, r1, x2, y2, r2) {
+    let top1 = y1 - r1 / 2
+    let buttom1 = y1 + r1 / 2
+    let left1 = x1 - r1 / 2
+    let right1 = x1 + r1 / 2
+
+    let top2 = y2 - r2 / 2
+    let buttom2 = y2 + r2 / 2
+    let left2 = x2 - r2 / 2
+    let right2 = x2 + r2 / 2
+
+    return buttom1 > top2
+        && top1 < buttom2
+        && right1 > left2
+        && left1 < right2
+
 }
 
 function setup() {
@@ -89,7 +89,7 @@ var commands = [
 }`,
     `function name(){
 }`,
-"overlap_circles(x1, y1, r1, x2, y2, r2)"
+    "overlap_circles(x1, y1, r1, x2, y2, r2)"
 ]
 
 var clist = document.getElementById("commands");
@@ -105,6 +105,78 @@ commands.forEach(command => {
 
     clist.appendChild(li)
 });
+
+function addExampleAngryBird() {
+    const exampleCode = `
+
+  background(112, 50, 126);
+  strokeWeight(4);
+  stroke(255);
+  if(!rleased){
+  line(anchor.x, anchor.y, bob.x, bob.y);
+  }
+  fill(45, 197, 244);
+  circle(anchor.x, anchor.y, 32);
+  circle(bob.x, bob.y, 64);
+
+  if (mouseIsPressed) {
+    rleased = false;
+    bob.x = mouseX;
+    bob.y = mouseY;
+    velocity.set(0, 0);
+  }
+
+  if(!rleased){
+  gravity.set(0, 0.01)
+  force = p5.Vector.sub(bob, anchor);
+  let x = force.mag() - restLength;
+  force.mult(-1 * k * x);
+  }else{
+    if(gravity.y < 2){
+      gravity.y += 0.025;
+        }
+    }
+
+
+
+  force.normalize();
+  velocity.add(force);
+  velocity.add(gravity)
+  bob.add(velocity);
+    `;
+
+
+
+    editor1.setValue(`
+
+bob = null;
+anchor = null;
+velocity = null;
+restLength = 150;
+k = 0.01;
+gravity = null;
+force = null;
+rleased = false;
+
+
+
+bob = createVector(100, 100);
+anchor = createVector(150, 100);
+velocity = createVector(0, 0);
+gravity = createVector(0, 0.03);
+
+
+
+mouseReleased = function mouseReleased() {
+  rleased = true;
+}
+
+
+        `)
+    editor2.setValue(exampleCode);
+}
+
+
 
 function addCode1() {
 
@@ -167,11 +239,11 @@ x3 = x2
 y3 = y2
 r3 = 30
     `);
-    
+
     editor2.setValue(editor2.getValue() + "\n" + exampleCode2)
 }
 
-function addCode3(){
+function addCode3() {
 
     const exampleCode3 = `
 textSize(30)
@@ -195,8 +267,8 @@ if(overlap_circles(x, y, r, x2, y2, r2)){
     score += 1
 }`
 
-     editor1.setValue(editor1.getValue() + "\n" + "life = 5\nscore = 0")
-     editor2.setValue(editor2.getValue() + "\n" + exampleCode3)
+    editor1.setValue(editor1.getValue() + "\n" + "life = 5\nscore = 0")
+    editor2.setValue(editor2.getValue() + "\n" + exampleCode3)
 }
 
 

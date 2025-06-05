@@ -349,7 +349,7 @@ anchor = createVector(150, 100);
 velocity = createVector(0, 0);
 gravity = createVector(0, 0.03);
 rct = {w:30,h:350}
-rct.v = createVector(400, 50);
+rct.v = createVector(350, 50);
 gf = createVector(0, 0.2);
 fire = new Firework(10,10);
 

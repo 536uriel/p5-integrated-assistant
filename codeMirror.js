@@ -369,6 +369,7 @@ mouseReleased = function mouseReleased() {
 function addCode1() {
 
     const exampleCode1 = `
+background("rgb(180, 170, 226)");
 fill(0, 0, 225)
 circle(mouseX, mouseY, 70)
 
@@ -387,6 +388,13 @@ if(y < 0){
 x = 0
 y = 0
 r = 40
+
+
+ec1 = 0;
+ec2 = 225;
+ec3 = 0;
+
+
         `)
     editor2.setValue(exampleCode1);
 
@@ -394,8 +402,9 @@ r = 40
 
 function addCode2() {
     const exampleCode2 = `
-    
-fill('purple')
+
+
+fill(ec1,ec2,ec3);
 circle(x2, y2, r2)
 
 y2 += 3
@@ -442,7 +451,8 @@ if(overlap_circles(mouseX, mouseY, 70, x3, y3, r3)){
     x3 = x2
     y3 = y2 
 
-    life -= 1
+    life -= 1;
+
 }
 
 if(overlap_circles(x, y, r, x2, y2, r2)){
@@ -452,11 +462,27 @@ if(overlap_circles(x, y, r, x2, y2, r2)){
     x = mouseX
     y = mouseY
 
-    score += 1
-}`
+    score += 1;
 
-    editor1.setValue(editor1.getValue() + "\n" + "life = 5\nscore = 0")
-    editor2.setValue(editor2.getValue() + "\n" + exampleCode3)
+    ec1 = random(0,300);
+    ec2 = random(0,300);
+    ec3 = random(0,300);
+
+
+}
+
+    
+`
+
+    editor1.setValue(editor1.getValue() + "\n" + "life = 5\nscore = 0");
+    editor2.setValue(editor2.getValue() + "\n" + exampleCode3);
+}
+
+
+
+function cleanCode(){
+    editor1.setValue("");
+    editor2.setValue("");
 }
 
 

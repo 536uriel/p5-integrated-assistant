@@ -251,6 +251,22 @@ commands.forEach(command => {
     clist.appendChild(li)
 });
 
+
+var alist = document.getElementById("commends-drop-down");
+
+commands.forEach(command => {
+    let a = document.createElement("a");
+
+    a.innerText = command;
+    a.id = "commends-drop-a"
+
+    a.addEventListener("click", () => {
+        editor2.setValue(editor2.getValue() + "\n" + command);
+    })
+
+    alist.appendChild(a);
+});
+
 function addExampleAngryBird() {
     const exampleCode = `
 

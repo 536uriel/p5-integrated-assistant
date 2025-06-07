@@ -31,7 +31,7 @@
 
     <div class="navbar">
         <a href="#" id="clean-btn" onclick="cleanCode()">נקה קןד</a>
-        <a href="#" onclick="addExampleAngryBird()">  דוגמה </a>
+        <a href="#" onclick="addExampleAngryBird()"> דוגמה </a>
         <div class="dropdown">
             <button class="dropbtn">דוגמה למשחק 1
                 <i class="fa fa-caret-down"></i>
@@ -45,20 +45,29 @@
                 </a>
             </div>
         </div>
+
+        <div class="dropdown">
+            <button id="commends-btn" class="dropbtn">פקודות  
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div id="commends-drop-down" class="dropdown-content">
+
+            </div>
+        </div>
     </div>
 
-    <h1 style="margin-bottom: 2rem;"> תרגול תכנות לבית ספר ארנון p5 </h1>
+    <h1> תרגול תכנות לבית ספר ארנון p5 </h1>
 
     <div class="main-container">
 
         <div class="editors-container">
             <!-- CodeMirror Editor -->
-            <h3>// draw כאן נכתוב את הקוד שלפני הפונקציה הראשית </h3>
+            <h3>// כאן נכתוב את המשתנים שלנו </h3>
 
             <textarea id="editor1">// Type JavaScript code here and click Run</textarea>
 
             <h3>// draw כאן נכתוב את הקוד שבתוך הפונקציה </h3>
-            <h2>function draw(){ </h2>
+            <h3>function draw(){ </h3>
             <textarea id="editor2">// Type JavaScript code here and click Run</textarea>
             <h2>}</h2>
 

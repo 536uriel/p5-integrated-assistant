@@ -176,7 +176,7 @@ function overlap_circles(x1, y1, r1, x2, y2, r2) {
 
 function setup() {
 
-    let canvas = createCanvas(500, 400);
+    let canvas = createCanvas((cwidth / 2) - 50, 400);
     canvas.parent("output-canvas");
 
 }
@@ -206,8 +206,8 @@ var editor2 = CodeMirror.fromTextArea(document.getElementById("editor2"), {
 
 
 
-editor1.setSize(cwidth / 2, 120);
-editor2.setSize(cwidth / 2, 200);
+editor1.setSize((cwidth / 2) - 30, 120);
+editor2.setSize((cwidth / 2) - 30, 200);
 
 
 

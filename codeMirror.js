@@ -178,6 +178,13 @@ function setup() {
 
     let canvas = createCanvas((cwidth / 2) - 50, 400);
     canvas.parent("output-canvas");
+    
+    let divtxt = document.getElementById("canvas-size-text");
+    divtxt.style.display = "inline-block"
+    divtxt.style.fontSize = "1.5rem"
+    divtxt.style.marginLeft = "30px"
+    divtxt.style.color = "rgb(96, 117, 156)"
+    divtxt.innerText = "canvas size " + canvas.width + " X " + canvas.height;
 
 }
 

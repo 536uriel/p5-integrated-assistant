@@ -8,6 +8,12 @@ var cwidth = Math.max(body.scrollWidth, body.offsetWidth,
 var cheight = Math.max(body.scrollHeight, body.offsetHeight,
     html.clientHeight, html.scrollHeight, html.offsetHeight);
 
+var div_show_mouse = document.getElementById("show-mouse-pos");
+    div_show_mouse.style.display = "inline-block"
+    div_show_mouse.style.fontSize = "1.2rem"
+    div_show_mouse.style.marginLeft = "20px"
+    div_show_mouse.style.color = "rgb(96, 117, 156)"
+
 var callback = () => { };
 
 
@@ -184,12 +190,13 @@ function setup() {
     divtxt.style.fontSize = "1.5rem"
     divtxt.style.marginLeft = "30px"
     divtxt.style.color = "rgb(96, 117, 156)"
-    divtxt.innerText = "canvas size " + canvas.width + " X " + canvas.height;
+    divtxt.innerText = "size " + canvas.width + " X " + canvas.height;
 
 }
 
 function draw() {
     background(225);
+    div_show_mouse.innerText = "mouseX " + Math.round(mouseX) + "  mouseY " + Math.round(mouseY);
     callback();
 }
 

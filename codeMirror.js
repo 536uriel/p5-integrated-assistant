@@ -236,10 +236,6 @@ var commands = [
   "random()",
   "mouseX",
   "mouseY",
-  `loadImage("https://static.vecteezy.com/vite/assets/photo-masthead-375-BoK_p8LG.webp", (loadedImage) => {
-      img = loadedImage;
-    });`,
-  "image(img,0,0,width,height)",
   "triangle(x1, y1, x2, y2, x3, y3)",
   "keyIsPressed",
   "key",

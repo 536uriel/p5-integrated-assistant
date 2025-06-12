@@ -1,18 +1,18 @@
 //for p5 canvas
 var body = document.body,
-    html = document.documentElement;
+  html = document.documentElement;
 
 var cwidth = Math.max(body.scrollWidth, body.offsetWidth,
-    html.clientWidth, html.scrollWidth, html.offsetWidth);
+  html.clientWidth, html.scrollWidth, html.offsetWidth);
 
 var cheight = Math.max(body.scrollHeight, body.offsetHeight,
-    html.clientHeight, html.scrollHeight, html.offsetHeight);
+  html.clientHeight, html.scrollHeight, html.offsetHeight);
 
 var div_show_mouse = document.getElementById("show-mouse-pos");
-    div_show_mouse.style.display = "inline-block"
-    div_show_mouse.style.fontSize = "1.2rem"
-    div_show_mouse.style.marginLeft = "20px"
-    div_show_mouse.style.color = "rgb(96, 117, 156)"
+div_show_mouse.style.display = "inline-block"
+div_show_mouse.style.fontSize = "1.2rem"
+div_show_mouse.style.marginLeft = "20px"
+div_show_mouse.style.color = "rgb(96, 117, 156)"
 
 var callback = () => { };
 
@@ -145,59 +145,59 @@ class Particle {
 
 
 function overlap_circle_rect(x1, y1, r1, x2, y2, w, h) {
-    let top1 = y1 - r1 / 2
-    let buttom1 = y1 + r1 / 2
-    let left1 = x1 - r1 / 2
-    let right1 = x1 + r1 / 2
+  let top1 = y1 - r1 / 2
+  let buttom1 = y1 + r1 / 2
+  let left1 = x1 - r1 / 2
+  let right1 = x1 + r1 / 2
 
-    let top2 = y2
-    let buttom2 = y2 + h
-    let left2 = x2
-    let right2 = x2 + w
+  let top2 = y2
+  let buttom2 = y2 + h
+  let left2 = x2
+  let right2 = x2 + w
 
-    return buttom1 > top2
-        && top1 < buttom2
-        && right1 > left2
-        && left1 < right2
+  return buttom1 > top2
+    && top1 < buttom2
+    && right1 > left2
+    && left1 < right2
 
 }
 
 function overlap_circles(x1, y1, r1, x2, y2, r2) {
-    let top1 = y1 - r1 / 2
-    let buttom1 = y1 + r1 / 2
-    let left1 = x1 - r1 / 2
-    let right1 = x1 + r1 / 2
+  let top1 = y1 - r1 / 2
+  let buttom1 = y1 + r1 / 2
+  let left1 = x1 - r1 / 2
+  let right1 = x1 + r1 / 2
 
-    let top2 = y2 - r2 / 2
-    let buttom2 = y2 + r2 / 2
-    let left2 = x2 - r2 / 2
-    let right2 = x2 + r2 / 2
+  let top2 = y2 - r2 / 2
+  let buttom2 = y2 + r2 / 2
+  let left2 = x2 - r2 / 2
+  let right2 = x2 + r2 / 2
 
-    return buttom1 > top2
-        && top1 < buttom2
-        && right1 > left2
-        && left1 < right2
+  return buttom1 > top2
+    && top1 < buttom2
+    && right1 > left2
+    && left1 < right2
 
 }
 
 function setup() {
 
-    let canvas = createCanvas((cwidth / 2) - 50, 400);
-    canvas.parent("output-canvas");
-    
-    let divtxt = document.getElementById("canvas-size-text");
-    divtxt.style.display = "inline-block"
-    divtxt.style.fontSize = "1.5rem"
-    divtxt.style.marginLeft = "30px"
-    divtxt.style.color = "rgb(96, 117, 156)"
-    divtxt.innerText = "size " + canvas.width + " X " + canvas.height;
+  let canvas = createCanvas((cwidth / 2) - 50, 400);
+  canvas.parent("output-canvas");
+
+  let divtxt = document.getElementById("canvas-size-text");
+  divtxt.style.display = "inline-block"
+  divtxt.style.fontSize = "1.5rem"
+  divtxt.style.marginLeft = "30px"
+  divtxt.style.color = "rgb(96, 117, 156)"
+  divtxt.innerText = "size " + canvas.width + " X " + canvas.height;
 
 }
 
 function draw() {
-    background(225);
-    div_show_mouse.innerText = "mouseX " + Math.round(mouseX) + "  mouseY " + Math.round(mouseY);
-    callback();
+  background(225);
+  div_show_mouse.innerText = "mouseX " + Math.round(mouseX) + "  mouseY " + Math.round(mouseY);
+  callback();
 }
 
 
@@ -205,16 +205,16 @@ function draw() {
 
 //editor for the precode 
 var editor1 = CodeMirror.fromTextArea(document.getElementById("editor1"), {
-    mode: "javascript",  // Syntax highlighting mode
-    lineNumbers: true,   // Show line numbers
-    theme: "default"
+  mode: "javascript",  // Syntax highlighting mode
+  lineNumbers: true,   // Show line numbers
+  theme: "default"
 });
 
 //editor for the draw function
 var editor2 = CodeMirror.fromTextArea(document.getElementById("editor2"), {
-    mode: "javascript",  // Syntax highlighting mode
-    lineNumbers: true,   // Show line numbers
-    theme: "default"
+  mode: "javascript",  // Syntax highlighting mode
+  lineNumbers: true,   // Show line numbers
+  theme: "default"
 
 });
 
@@ -228,61 +228,65 @@ editor2.setSize((cwidth / 2) - 30, 200);
 
 
 var commands = [
-    "background(225)",
-    "fill(0, 0, 225)",
-    "circle(x, y, r)",
-    "rect(x, y, w, h)",
-    "line(x1, y1, x2, y2)",
-    "random()",
-    "mouseX",
-    "mouseY",
-    "triangle(x1, y1, x2, y2, x3, y3)",
-    "keyIsPressed",
-    "key",
-    `if(){  
+  "background(225)",
+  "fill(0, 0, 225)",
+  "circle(x, y, r)",
+  "rect(x, y, w, h)",
+  "line(x1, y1, x2, y2)",
+  "random()",
+  "mouseX",
+  "mouseY",
+  `loadImage("https://static.vecteezy.com/vite/assets/photo-masthead-375-BoK_p8LG.webp", (loadedImage) => {
+      img = loadedImage;
+    });`,
+  "image(img,0,0,width,height)",
+  "triangle(x1, y1, x2, y2, x3, y3)",
+  "keyIsPressed",
+  "key",
+  `if(){  
     
 
 }else{ 
 
 
 }`,
-    `function name(){
+  `function name(){
 }`,
-    "overlap_circles(x1, y1, r1, x2, y2, r2)"
+  "overlap_circles(x1, y1, r1, x2, y2, r2)"
 ]
 
 var clist = document.getElementById("commands");
 
 commands.forEach(command => {
-    let li = document.createElement("li");
+  let li = document.createElement("li");
 
-    li.innerText = command;
+  li.innerText = command;
 
-    li.addEventListener("click", () => {
-        editor2.setValue(editor2.getValue() + "\n" + command);
-    })
+  li.addEventListener("click", () => {
+    editor2.setValue(editor2.getValue() + "\n" + command);
+  })
 
-    clist.appendChild(li)
+  clist.appendChild(li)
 });
 
 
 var alist = document.getElementById("commends-drop-down");
 
 commands.forEach(command => {
-    let a = document.createElement("a");
+  let a = document.createElement("a");
 
-    a.innerText = command;
-    a.id = "commends-drop-a"
+  a.innerText = command;
+  a.id = "commends-drop-a"
 
-    a.addEventListener("click", () => {
-        editor2.setValue(editor2.getValue() + "\n" + command);
-    })
+  a.addEventListener("click", () => {
+    editor2.setValue(editor2.getValue() + "\n" + command);
+  })
 
-    alist.appendChild(a);
+  alist.appendChild(a);
 });
 
 function addExampleAngryBird() {
-    const exampleCode = `
+  const exampleCode = `
 
 background(112, 50, 126);
 strokeWeight(4);
@@ -354,7 +358,7 @@ fire.show();
 
 
 
-    editor1.setValue(`
+  editor1.setValue(`
 
 bob = null;
 anchor = null;
@@ -391,14 +395,14 @@ mouseReleased = function mouseReleased() {
 
 
         `)
-    editor2.setValue(exampleCode);
+  editor2.setValue(exampleCode);
 }
 
 
 
 function addCode1() {
 
-    const exampleCode1 = `
+  const exampleCode1 = `
 background("rgb(180, 170, 226)");
 strokeWeight(4);
 stroke(255);
@@ -416,7 +420,7 @@ if(y < 0){
 }
 
 `
-    editor1.setValue(`
+  editor1.setValue(`
 x = 0
 y = 0
 r = 40
@@ -428,12 +432,12 @@ ec3 = 0;
 
 
         `)
-    editor2.setValue(exampleCode1);
+  editor2.setValue(exampleCode1);
 
 }
 
 function addCode2() {
-    const exampleCode2 = `
+  const exampleCode2 = `
 
 
 fill(ec1,ec2,ec3);
@@ -459,7 +463,7 @@ if(y3 > 400){
 
     `
 
-    editor1.setValue(editor1.getValue() + "\n" + `
+  editor1.setValue(editor1.getValue() + "\n" + `
 x2 = 100
 y2 = 50
 r2 = 70
@@ -469,12 +473,12 @@ y3 = y2
 r3 = 30
     `);
 
-    editor2.setValue(editor2.getValue() + "\n" + exampleCode2)
+  editor2.setValue(editor2.getValue() + "\n" + exampleCode2)
 }
 
 function addCode3() {
 
-    const exampleCode3 = `
+  const exampleCode3 = `
 textSize(30)
 text("life " + life, 50,100)
 text("score " + score, 250,100)
@@ -506,59 +510,59 @@ if(overlap_circles(x, y, r, x2, y2, r2)){
     
 `
 
-    editor1.setValue(editor1.getValue() + "\n" + "life = 5\nscore = 0");
-    editor2.setValue(editor2.getValue() + "\n" + exampleCode3);
+  editor1.setValue(editor1.getValue() + "\n" + "life = 5\nscore = 0");
+  editor2.setValue(editor2.getValue() + "\n" + exampleCode3);
 }
 
 
 
-function cleanCode(){
-    editor1.setValue("");
-    editor2.setValue("");
+function cleanCode() {
+  editor1.setValue("");
+  editor2.setValue("");
 }
 
 
 
 // Function to execute code as online console
 function runCode() {
-    try {
-        // Get the code from CodeMirror
-        var preCode = editor1.getValue();
-        var code = editor2.getValue();
+  try {
+    // Get the code from CodeMirror
+    var preCode = editor1.getValue();
+    var code = editor2.getValue();
 
-        // Redirect console.log to display in the output div
-        var outputDiv = document.getElementById("output");
-        outputDiv.innerHTML = ''; // Clear previous output
+    // Redirect console.log to display in the output div
+    var outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = ''; // Clear previous output
 
-        var originalConsoleLog = console.log;
-        console.log = function (message) {
-            outputDiv.innerHTML += message + '<br>';
-            originalConsoleLog.apply(console, arguments);
-        };
-
-
-        //for the output div 
-        new Function(preCode)();
-        new Function(code)();
-
-        // Run the JavaScript code dinamicly 
-        /*
-        new Function(code)();
-        is equelevant to: 
-        function(){
-            console.log("code")
-        }
-        */
-        callback = () => {
-            //for execute p5 code
-            new Function(code)();
-        }
+    var originalConsoleLog = console.log;
+    console.log = function (message) {
+      outputDiv.innerHTML += message + '<br>';
+      originalConsoleLog.apply(console, arguments);
+    };
 
 
+    //for the output div 
+    new Function(preCode)();
+    new Function(code)();
 
-        // Restore original console.log
-        console.log = originalConsoleLog;
-    } catch (error) {
-        document.getElementById("output").innerHTML = "Error: " + error.message;
+    // Run the JavaScript code dinamicly 
+    /*
+    new Function(code)();
+    is equelevant to: 
+    function(){
+        console.log("code")
     }
+    */
+    callback = () => {
+      //for execute p5 code
+      new Function(code)();
+    }
+
+
+
+    // Restore original console.log
+    console.log = originalConsoleLog;
+  } catch (error) {
+    document.getElementById("output").innerHTML = "Error: " + error.message;
+  }
 }

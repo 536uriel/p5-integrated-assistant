@@ -226,7 +226,6 @@ editor2.setSize((cwidth / 2) - 30, 200);
 
 
 
-
 var commands = [
   "background(225)",
   "fill(0, 0, 225)",

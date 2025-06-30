@@ -30,18 +30,20 @@
 
     <div class="navbar">
         <a href="#" id="clean-btn" onclick="cleanCode()">נקה קןד</a>
-        <a href="#" onclick="addExampleAngryBird()"> דוגמה </a>
         <div class="dropdown">
-            <button class="dropbtn">דוגמה למשחק 1
+            <button class="dropbtn">דוגמאות
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="#" onclick="addCode1()">דוגמה קוד 1
+                <a href="#" onclick="addCode1()"> משחק 1 חלק א
                 </a>
-                <a href="#" onclick="addCode2()">1 + דוגמה קוד 2
+                <a href="#" onclick="addCode2()">משחק 1 חלק ב
                 </a>
-                <a href="#" onclick="addCode3()">1 + 2 + דוגמה קוד 3
+                <a href="#" onclick="addCode3()">משחק 1 חלק ג
                 </a>
+                <a href="#" onclick="addExampleAngryBird()" style="background-color: rgb(138, 127, 255);">דוגמה למשחק 2
+                </a>
+
             </div>
         </div>
 
@@ -51,6 +53,16 @@
             </button>
             <div id="commends-drop-down" class="dropdown-content">
 
+            </div>
+        </div>
+
+
+        <div class="dropdown">
+            <button id="commends-btn" class="dropbtn">תרגולים
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a onclick="addExercise1()">תרגיל 1</a>
             </div>
         </div>
 
@@ -114,10 +126,14 @@
     <h3>Output:</h3>
     <div id="output"></div>
 
+
+
+    <script src="envVars.js"></script>
     <script src="fireworks.js"></script>
     <script src="helpers.js"></script>
     <script src="editorSetup.js"></script>
     <script src="codeExamples.js"></script>
+    <script src="codeExercises.js"></script>
     <script src="main.js"></script>
 
 

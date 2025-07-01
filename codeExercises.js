@@ -1,19 +1,23 @@
 function addExercise1() {
     editor1.setValue(`
+        r = 0
+        g = 0
+        b = 0
+
         x = 100
         y = 100
-        r = 100
+        radius = 100
         speedx = 5
         speedy = 5
 
         `)
 
     editor2.setValue(`
-        //תרגיל 1: שנה צבע באופן אקראי
-        //עם הפקודה  random()
-        
+
+        //הכנס כאן את משתני הצבעים לפקודה 
+        //ושנה את הצבעים של הכדור עם שינוי המספרים
         fill("purple")
-        circle(x, y, r)
+        circle(x, y, radius)
 
         x += speedx
         y += speedy

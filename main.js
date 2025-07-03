@@ -93,8 +93,6 @@ commands.forEach(command => {
 });
 
 
-
-
 function cleanCode() {
   editor1.setValue("");
   editor2.setValue("");

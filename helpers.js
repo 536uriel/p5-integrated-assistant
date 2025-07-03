@@ -54,11 +54,21 @@ function createCircle(x = 200, y = 200,
   //כאן אנו מוסיפים את הכיוון והתנועה בפועל לעיגול
   c.add(d);
   //כאן אנו קובעים את העיגול לפי המשתנים שיצרנו
-  fill(color);
+
+  c.r = r;
+  c.color = color;
+  c.direction = direction;
+  c.speed = speed;
+
+  c.dir = function (dir = -90) {
+    d = degrees_to_direction(dir);
+    d.mult(c.speed);
+  }
 
 
   c.draw = function () {
     c.add(d);
+    fill(c.color);
     circle(c.x, c.y, r);
   };
 

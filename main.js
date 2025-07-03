@@ -54,9 +54,7 @@ c.draw()`,
   "key",
   `if(){  
     
-
 }else{ 
-
 
 }`,
   `function name(){

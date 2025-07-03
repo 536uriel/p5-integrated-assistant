@@ -40,6 +40,8 @@ var commands = [
   "background(225)",
   "fill(0, 0, 225)",
   "circle(x, y, r)",
+  `c = createCircle(x=200, y=200,r=50, color='blue', direction=-90, speed=5)
+c.draw()`,
   "rect(x, y, w, h)",
   "line(x1, y1, x2, y2)",
   "random()",

@@ -34,3 +34,33 @@ function overlap_circles(x1, y1, r1, x2, y2, r2) {
     && left1 < right2
 
 }
+
+function degrees_to_direction(deg) {
+  const rad = deg / (180 / Math.PI);
+  const x = Math.cos(rad);
+  const y = Math.sin(rad);
+  return createVector(x, y);
+}
+
+function createCircle(x = 200, y = 200,
+  r = 50, color = "blue", direction = -90, speed = 5) {
+  //קבע כיוון התנועה של המעגל
+  let d = degrees_to_direction(direction);
+  //קבע את המיקום ההתחלתי של המעגל
+  let c = createVector(x, y);
+  //קבע מהירות התנועה של המעגל
+  d.mult(speed);
+
+  //כאן אנו מוסיפים את הכיוון והתנועה בפועל לעיגול
+  c.add(d);
+  //כאן אנו קובעים את העיגול לפי המשתנים שיצרנו
+  fill(color);
+
+
+  c.draw = function () {
+    c.add(d);
+    circle(c.x, c.y, r);
+  };
+
+  return c;
+}

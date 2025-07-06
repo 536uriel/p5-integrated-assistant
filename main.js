@@ -7,7 +7,6 @@ div_show_mouse.style.color = "rgb(96, 117, 156)"
 
 var callback = () => { };
 
-
 function setup() {
 
   let canvas = createCanvas((cwidth / 2) - 50, 400);

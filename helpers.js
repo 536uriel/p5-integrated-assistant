@@ -44,32 +44,28 @@ function degrees_to_direction(deg) {
 
 function createCircle(x = 200, y = 200,
   r = 50, color = "blue", direction = -90, speed = 5) {
-  //קבע כיוון התנועה של המעגל
-  let d = degrees_to_direction(direction);
-  //קבע את המיקום ההתחלתי של המעגל
-  let c = createVector(x, y);
-  //קבע מהירות התנועה של המעגל
-  d.mult(speed);
 
-  //כאן אנו מוסיפים את הכיוון והתנועה בפועל לעיגול
-  c.add(d);
-  //כאן אנו קובעים את העיגול לפי המשתנים שיצרנו
-
+  let c = degrees_to_direction(direction);
+  c.x = x;
+  c.y = y;
   c.r = r;
   c.color = color;
   c.direction = direction;
   c.speed = speed;
 
-  c.dir = function (dir = -90) {
-    d = degrees_to_direction(dir);
-    d.mult(c.speed);
-  }
-
 
   c.draw = function () {
-    c.add(d);
-    fill(c.color);
-    circle(c.x, c.y, r);
+    //קבע כיוון התנועה של המעגל
+    let d = degrees_to_direction(this.direction);
+
+    //קבע מהירות התנועה של המעגל
+    d.mult(this.speed);
+
+    //כאן אנו מוסיפים את הכיוון והתנועה בפועל לעיגול
+    this.add(d);
+
+    fill(this.color);
+    circle(this.x, this.y, this.r);
   };
 
   return c;

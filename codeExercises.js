@@ -70,12 +70,12 @@ c = createCircle(x=200, y=200,r=50, color='blue', direction=-90, speed=5)
 //אם נוגע במסגרת - אז שנה כיוון
 if (c.y < 0 || c.y > height){
 c.direction = -c.direction
-c.dir(c.direction)
+
 }
 
 if (c.x < 0 || c.x > width){
 c.speed = -c.speed
-c.dir(c.direction)
+
 }
 //צייר את העיגול
 c.draw()

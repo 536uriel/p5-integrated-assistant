@@ -20,12 +20,16 @@ function setup() {
   divtxt.style.color = "rgb(96, 117, 156)"
   divtxt.innerText = "size " + canvas.width + " X " + canvas.height;
 
-  רקע = background;
-  צבע = fill;
+  try {
+    רקע = background;
+    צבע = fill;
 
-  עיגול = circle;
-  ריבוע = rect;
+    עיגול = circle;
+    ריבוע = rect;
 
+  } catch (err) {
+    console.log(err);
+  }
 
 }
 

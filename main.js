@@ -20,6 +20,13 @@ function setup() {
   divtxt.style.color = "rgb(96, 117, 156)"
   divtxt.innerText = "size " + canvas.width + " X " + canvas.height;
 
+  רקע = background;
+  צבע = fill;
+
+  עיגול = circle;
+  ריבוע = rect;
+
+
 }
 
 function draw() {
@@ -47,6 +54,10 @@ c.draw()`,
   "random()",
   "mouseX",
   "mouseY",
+  "רקע(225)",
+  "צבע(100,200,100)",
+  "עיגול(100, 100, 100)",
+  "ריבוע(100,100,100,100)",
   "cwidth",
   "cheight",
   "triangle(x1, y1, x2, y2, x3, y3)",

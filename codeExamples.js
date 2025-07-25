@@ -1,3 +1,15 @@
+/*
+credit for some of this code examples
+are given toDaniel Shiffman who 
+who created this idea and i took 
+some of it and changed it a little
+
+Daniel Shiffman
+http://codingtra.in
+https://youtu.be/CKeyIbT3vXI
+*/
+
+
 function addExampleAngryBird() {
     const exampleCode = `
 

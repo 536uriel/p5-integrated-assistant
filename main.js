@@ -1,4 +1,7 @@
 
+//redirect to other site i made
+window.location.href = "https://536uriel.github.io/rpg-maker-v2/";
+
 var div_show_mouse = document.getElementById("show-mouse-pos");
 div_show_mouse.style.display = "inline-block"
 div_show_mouse.style.fontSize = "1.2rem"

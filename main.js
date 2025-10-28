@@ -1,6 +1,35 @@
+function popup(str = "") {
 
-//redirect to other site i made
-window.location.href = "https://536uriel.github.io/rpg-maker-v2/";
+  const overlay = document.createElement("div");
+  overlay.style.cssText = `
+    position:fixed; inset:0; background:rgba(0,0,0,0.5);
+    display:flex; align-items:center; justify-content:center; z-index:9999;
+  `;
+
+  const popup = document.createElement("div");
+  popup.style.cssText = `
+    background:white; padding:50px; border-radius:10px; 
+    box-shadow:0 0 20px rgba(0,0,0,0.3); text-align:center; 
+    max-width:300px; font-family:sans-serif;
+  `;
+  popup.innerHTML = `
+    <p>${str}</p>
+    <div style="display:block; height:10px"></div>
+    <a href="https://536uriel.github.io/rpg-maker-v2/" style="text-decoration:none;
+    background:rgb(251, 143, 143);color:purple; 
+    border:none;padding:12px 18px; border-radius:6px; 
+    cursor:pointer;">${str}</a>
+  `;
+
+  overlay.appendChild(popup);
+  document.body.appendChild(overlay);
+
+  popup.querySelector("a").onclick = () => overlay.remove();
+  overlay.onclick = e => { if (e.target === overlay) overlay.remove(); };
+
+};
+
+popup("לחצו כאן לאתר יצירת עולם משחק")
 
 var div_show_mouse = document.getElementById("show-mouse-pos");
 div_show_mouse.style.display = "inline-block"

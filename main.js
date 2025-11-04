@@ -16,7 +16,7 @@ function popup(str = "") {
     <p>${str}</p>
     <div style="display:block; height:10px"></div>
     <a href="https://536uriel.github.io/rpg-maker-v2/" style="text-decoration:none;
-    background:rgb(251, 143, 143);color:purple; 
+    background:rgba(251, 177, 143, 1);color:purple; 
     border:none;padding:12px 18px; border-radius:6px; 
     cursor:pointer;">${str}</a>
   `;
